@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <style>
-    .leads {
-      padding: 10px 6px;
-      margin-top: 10px;
-      background-color: #f6f6f6;
-      width: 100%;
-    }
-  </style>
+{% extends 'partials/base.html' %} {% block content%}
 
-  <body>
-    <a href="/leads/create/"> create a new lead</a>
-    <hr />
-    <h1>this is all of our leads</h1>
-    {% for lead in leads %}
-    <div class="leads">
-      <a href="/leads/{{lead.pk}}"> {{lead.first_name}} {{lead.last_name}}.</a>
-      Age: {{lead.age}}
-    </div>
-    {% endfor %}
-  </body>
-</html>
+<a href="{% url 'lead_create' %}"> create a new lead</a>
+<hr />
+<h1>this is all of our leads</h1>
+{% for lead in leads %}
+<div class="leads">
+  <a href="{% url 'lead_detail' pk=lead.pk %}">
+    {{lead.first_name}} {{lead.last_name}}.</a
+  >
+  Age: {{lead.age}}
+</div>
+{% endfor %} {% endblock content%}

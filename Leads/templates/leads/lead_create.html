@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <a href="/leads">Go back to leads</a>
-    <hr />
-    <h1>create new lead</h1>
-    <form method="post">
-      {% csrf_token %} {{form.as_p}}
-      <button type="submit">Submit</button>
-    </form>
-  </body>
-</html>
+{% extends 'partials/base.html' %} {% block content%}
+<a href="{% url 'leads' %}">Go back to leads</a>
+<hr />
+<h1>create new lead</h1>
+<form method="post">
+  {% csrf_token %} {{form.as_p}}
+  <button type="submit">Submit</button>
+</form>
+{% endblock content%}
