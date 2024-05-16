@@ -1,0 +1,15 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crmSystem</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <div class="max-w-4xl mx-auto bg-gray-100">
+      {% block content %} {% endblock content %}
+    </div>
+  </body>
+</html>
