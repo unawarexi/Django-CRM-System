@@ -19,5 +19,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("leads/", include("Leads.urls", namespace="leads"))
+    path("leads/", include("Leads.urls")),
+    path("__reload__/", include("django_browser_reload.urls")),
 ]
+
+
+#  namespace="leads"
