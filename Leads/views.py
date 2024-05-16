@@ -4,6 +4,9 @@ from .models import Leads, Agent
 from .forms.lead_forms import LeadForm, LeadModelForm
 
 # Create your views here.
+def landing_page(request):
+    return render(request, "Layout/landing_page.html")
+
 def lead_List(request):
     leads = Leads.objects.all()
     context = {
