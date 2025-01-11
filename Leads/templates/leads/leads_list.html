@@ -9,6 +9,18 @@
         <h1 class="text-4xl text-gray-800">Leads</h1>
       </div>
 
+      {% comment %} {# 
+        This template file is used to display a list of leads in the CRM system.
+        Important points to note in this file:
+        
+        - Loops: Look for `{% for lead in leads %}` and `{% endfor %}` tags to identify where the list of leads is being iterated over.
+        - URLs: Check for `{% url 'namespace:viewname' %}` tags to identify where URLs are being generated for links.
+        - Template Inheritance: If `{% extends 'base.html' %}` or similar is present, it indicates that this template inherits from a base template.
+        - Blocks: Look for `{% block content %}` and `{% endblock %}` to identify where content blocks are defined.
+        - Forms: If there are any forms, look for `<form>` tags and `{% csrf_token %}` for CSRF protection.
+        - Static Files: Check for `{% load static %}` and `{% static 'path/to/file' %}` for including static files like CSS and JavaScript.
+        - Messages: Look for `{% if messages %}` and `{% for message in messages %}` to handle Django's messaging framework.
+      #} {% endcomment %}
       <div
         class="bg-blue-500 px-4 py-2 rounded-full text-white font-semibold hover:bg-blue-700"
       >
