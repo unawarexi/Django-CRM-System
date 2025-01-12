@@ -3,11 +3,34 @@ from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from .models import Leads, Agent
-from .forms.lead_forms import LeadForm, LeadModelForm
+from .forms.lead_forms import LeadForm, LeadModelForm, CustomUserCreationForm
 from django.views import generic
-from django.contrib.auth.views import LoginView
 # import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
+
+class SignUpView(generic.CreateView):
+    template_name = "registration/signup.html"
+    form_class = CustomUserCreationForm
+    
+    def get_success_url(self):
+        return reverse("login")
+    
+    
+# class LoginInView(LoginView):
+#     template_name = "registration/login.html"
+#     form_class = AuthenticationForm
+
+#     def get_success_url(self):
+#         return reverse("landing_page")
+    
+    
+# # Logout view (you can customize the logout behavior if needed)
+# class LoggingOutView(LoginRequiredMixin, LogoutView):
+#     next_page = 'login'  # Redirect to login page after logout
+
+#     def get(self, request, *args, **kwargs):
+#         logout(request)
+#         return redirect(self.next_page)
 
 class LandingPageView(generic.TemplateView):
     template_name = "Layout/landing_page.html"

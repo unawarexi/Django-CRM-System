@@ -18,15 +18,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from Leads.views import landing_page, LandingPageView
+from Leads.views import landing_page, LandingPageView, SignUpView
 from django.contrib.auth.views import LogoutView, LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", LandingPageView.as_view(), name = "landing_page"),
     path("leads/", include("Leads.urls")),
+    path("signup/", SignUpView.as_view(), name = "signup"),
     path("__reload__/", include("django_browser_reload.urls")),
-    path("login/", LoginView.as_view(), name = "login")
+    path("login/", LoginView.as_view(), name = "login"),
+    path("logout/", LogoutView.as_view(), name = "logout")
    
 ]
 
