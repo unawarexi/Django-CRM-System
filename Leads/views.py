@@ -5,6 +5,7 @@ from django.urls import reverse
 from .models import Leads, Agent
 from .forms.lead_forms import LeadForm, LeadModelForm, CustomUserCreationForm
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 # import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
@@ -14,28 +15,11 @@ class SignUpView(generic.CreateView):
     
     def get_success_url(self):
         return reverse("login")
-    
-    
-# class LoginInView(LoginView):
-#     template_name = "registration/login.html"
-#     form_class = AuthenticationForm
-
-#     def get_success_url(self):
-#         return reverse("landing_page")
-    
-    
-# # Logout view (you can customize the logout behavior if needed)
-# class LoggingOutView(LoginRequiredMixin, LogoutView):
-#     next_page = 'login'  # Redirect to login page after logout
-
-#     def get(self, request, *args, **kwargs):
-#         logout(request)
-#         return redirect(self.next_page)
 
 class LandingPageView(generic.TemplateView):
     template_name = "Layout/landing_page.html"
     
-class LeadListView(generic.ListView):
+class LeadListView(LoginRequiredMixin, generic.ListView):
     template_name = "leads/leads_list.html"
     queryset = Leads.objects.all()
     context_object_name = "leads"
@@ -46,7 +30,7 @@ class LeadDetailView(generic.DetailView):
     context_object_name = "lead"
     
 
-class LeadCreateView(generic.CreateView):
+class LeadCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = "leads/lead_create.html"
     form_class = LeadModelForm
     
@@ -64,7 +48,7 @@ class LeadCreateView(generic.CreateView):
         return super(LeadCreateView, self).form_valid(form)
     
     
-class LeadUpdateView(generic.UpdateView):
+class LeadUpdateView(LoginRequiredMixin, generic.UpdateView):
     template_name = "leads/lead_update.html"
     queryset = Leads.objects.all()
     form_class = LeadModelForm
@@ -72,7 +56,7 @@ class LeadUpdateView(generic.UpdateView):
     def get_success_url(self):
         return reverse("leads")
     
-class LeadDeleteView(generic.DeleteView):
+class LeadDeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = "leads/lead_delete.html"
     queryset = Leads.objects.all()
     
