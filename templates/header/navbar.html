@@ -18,11 +18,17 @@
       <span class="ml-3 text-xl">crmSystem</span>
     </a>
     <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-      <a href="{% url 'leads' %}" class="mr-5 hover:text-gray-900 cursor-pointer">Leads</a>
-      
+     
+
       {% comment %} ----------- ONLY SHOW THIS IF NOT AUTHENTICATED ---------- {% endcomment %}
       {% if not request.user.is_authenticated %}
       <a href="{% url 'signup' %}" class="mr-5 hover:text-gray-900 cursor-pointer">Signup</a>
+      
+      {% comment %} --------- else show this {% endcomment %}
+      {% else %}
+      <a href="{% url 'leads' %}" class="mr-5 hover:text-gray-900 cursor-pointer">Leads</a>
+      <a href="{% url 'agents:agent-list' %}" class="mr-5 hover:text-gray-900 cursor-pointer">Agents</a>
+
       {% endif %}
     </nav>
 

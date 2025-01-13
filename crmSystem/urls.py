@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", LandingPageView.as_view(), name = "landing_page"),
     path("leads/", include("Leads.urls")),
-    path("agents/", include("agents.urls")),
+    path("agents/", include("Agents.urls")),
     path("signup/", SignUpView.as_view(), name = "signup"),
     path("__reload__/", include("django_browser_reload.urls")),
     path("login/", LoginView.as_view(), name = "login"),

@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # customs Apps
-    'Agents'
+    'Agents',
     'Leads',
     'tailwind',
     'theme',

@@ -1,0 +1,89 @@
+{% extends "partials/base.html" %}
+
+{% block content %}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div
+        class="flex justify-between items-center py-6 border-b border-gray-200 mb-6 w-full"
+      >
+        <div>
+          <h1 class="text-4xl text-gray-800">Agents</h1>
+        </div>
+  
+        {% comment %} {# 
+          This template file is used to display a list of leads in the CRM system.
+          Important points to note in this file:
+          
+          - Loops: Look for `{% for lead in leads %}` and `{% endfor %}` tags to identify where the list of leads is being iterated over.
+          - URLs: Check for `{% url 'namespace:viewname' %}` tags to identify where URLs are being generated for links.
+          - Template Inheritance: If `{% extends 'base.html' %}` or similar is present, it indicates that this template inherits from a base template.
+          - Blocks: Look for `{% block content %}` and `{% endblock %}` to identify where content blocks are defined.
+          - Forms: If there are any forms, look for `<form>` tags and `{% csrf_token %}` for CSRF protection.
+          - Static Files: Check for `{% load static %}` and `{% static 'path/to/file' %}` for including static files like CSS and JavaScript.
+          - Messages: Look for `{% if messages %}` and `{% for message in messages %}` to handle Django's messaging framework.
+        #} {% endcomment %}
+        <div
+          class="bg-blue-500 px-4 py-2 rounded-full text-white font-semibold hover:bg-blue-700"
+        >
+          <a href="{% url 'agents:agent-create' %}"> create a new agent</a>
+        </div>
+      </div>
+  
+      <hr />
+      <div class="flex flex-wrap -m-4">
+        {% for agent in object_list %}
+  
+        <div class="p-4 lg:w-1/2 md:w-full">
+          <div
+            class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col"
+          >
+            <div
+              class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0"
+            >
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-8 h-8"
+                viewBox="0 0 24 24"
+              >
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                {{agent.user.username}}
+                {% comment %} {{agent.first_name}} {{agent.last_name}} {% endcomment %}
+              </h2>
+              <p class="leading-relaxed text-base">
+                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                taxidermy. Gastropub indxgo juice poutine.
+              </p>
+              <a
+                href="{%url "agents:agent-detail" pk=agent.pk %}"
+                class="mt-3 text-indigo-500 inline-flex items-center"
+                >View this agent
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  class="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+  
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  
+{% endblock content %}
