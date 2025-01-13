@@ -1,4 +1,4 @@
-from random import random
+import random
 from django.shortcuts import render
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
