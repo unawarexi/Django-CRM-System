@@ -1,6 +1,6 @@
-asgiref==3.8.1
-Django==5.0.6
-sqlparse==0.5.0
+asgiref==3.8.1 
+Django==5.1.4 
+sqlparse==0.5.3 
 tzdata==2024.1
 django-crispy-forms==1.10.0
 crispy-tailwind==0.2.0
@@ -8,5 +8,10 @@ Pillow==8.1.0
 psycopg2-binary==2.8.6
 whitenoise==5.2.0
 pytz==2020.4
-django-tailwind==1.1.0
+django-tailwind==3.8.0
+django-browser-reload==1.17.0
 gunicorn==20.0.4
+
+# Python formatting and pre-commit hooks
+black==24.10.0  
+pre-commit==2.20.0  
