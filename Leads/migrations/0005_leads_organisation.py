@@ -14,7 +14,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='leads',
             name='organisation',
-            field=models.ForeignKey(default=11, on_delete=django.db.models.deletion.CASCADE, to='Leads.userprofile'),
+            field=models.ForeignKey(
+                default=11,
+                on_delete=django.db.models.deletion.CASCADE,
+                to='Leads.userprofile',
+            ),
             preserve_default=False,
         ),
     ]
