@@ -2,7 +2,7 @@
 {% load tailwind_filters %}
 
 {% block content %}
-<section class="text-gray-600 body-font min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+<section class="text-gray-600 body-font min-h-[80vh] bg-gradient-to-br from-blue-50 to-indigo-100">
     <div class="container mx-auto flex flex-wrap items-center justify-center py-24">
         <!-- Left Section: Signup Benefits and Image -->
         <div class="lg:w-1/2 md:w-1/2 pr-0">
@@ -15,7 +15,7 @@
         </div>
 
         <!-- Signup Form -->
-        <form method="post" class="lg:w-2/6 md:w-1/2 bg-white shadow-xl rounded-lg p-10 flex flex-col w-full mt-10 md:mt-0">
+        <form method="post" class="lg:w-2/6 md:w-1/2 bg-white shadow-xl shadow-blue-500 rounded-lg p-10 flex flex-col w-full mt-10 md:mt-0">
             {% csrf_token %}
             <h2 class="text-gray-900 text-3xl font-semibold title-font mb-6">Create Your Account</h2>
 
