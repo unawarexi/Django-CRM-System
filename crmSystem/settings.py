@@ -44,9 +44,15 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 
 TAILWIND_APP_NAME = 'theme'
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+
+CRISPY_TEMPLATE_PACK = "tailwind"
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -156,3 +162,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_REDIRECT_URL = '/leads'
 LOGIN_URL = "/login"
+
+
